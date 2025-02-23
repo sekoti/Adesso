@@ -4,9 +4,9 @@ using AdessoDraw.Domain.Repositorys.Interfaces;
 
 
 namespace AdessoDraw.Domain.Repositorys;
-public class DrawRepository : Repository<Draw>, IDrawRepository
+public class TeamRepository : Repository<Team>, ITeamRepository
 {
-    public DrawRepository(DrawContext context) : base(context)
+    public TeamRepository(DrawContext context) : base(context)
     {
     }
 }

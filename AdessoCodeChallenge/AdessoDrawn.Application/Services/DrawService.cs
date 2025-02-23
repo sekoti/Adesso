@@ -21,7 +21,7 @@ public class DrawService : IDrawService
         var random = new Random();
         var countryGroup = teams.GroupBy(i => i.CountryId).OrderBy(x => random.Next()).ToList();
 
-        var groups = AssignTeamsToGroups(countryGroup, request.GroupCount);
+        var groups = AssignTeamsToGroups(countryGroup, request);
         return new DrawResponseModel
         {
             DrawnBy = request.Surname,
@@ -29,14 +29,26 @@ public class DrawService : IDrawService
             Groups = groups
         };
     }
-    private List<GroupResponseModel> AssignTeamsToGroups(List<IGrouping<int, Team>> countryGroup, int groupCount)
+    private List<GroupResponseModel> AssignTeamsToGroups(List<IGrouping<int, Team>> countryGroup, DrawRequestModel request)
     {
+        var drawResult = new Draw
+        {
+            DrawnBy = request.Name + " "+ request.Surname,
+            DrawDate = DateTime.Now
+        };
         var groups = new List<GroupResponseModel>();
         var random = new Random();
         // Her grup için takımları dağıt
-        for (int groupIndex = 0; groupIndex < groupCount; groupIndex++)
+        for (int groupIndex = 0; groupIndex < request.GroupCount; groupIndex++)
         {
             var group = new GroupResponseModel { GroupName = ((char)('A' + groupIndex)).ToString() };
+
+            var groupEnt = new Group
+            {
+                GroupCount = request.GroupCount,
+                GroupName = group.GroupName,
+                DrawId = drawResult.Id
+            };
 
             var teamsForGroup = new List<TeamResponseModel>();
 
@@ -53,11 +65,17 @@ public class DrawService : IDrawService
                             .FirstOrDefault();
                         if (team != null)
                         {
+                            
                             if (!groups.Any(i => i.Teams.Any(i => i.Name == team.Name)))
                             {
+                                var teamEnt = new GroupTeam
+                                {
+                                    GroupId = groupEnt.Id,
+                                    TeamId =team.Id
+                                };
+                                groupEnt.GroupTeams.Add(teamEnt);
                                 teamsForGroup.Add(new TeamResponseModel { Name = team.Name });
                                 countryGroupEntry.ToList().Remove(team);
-
                                 result = true;
                             }
                         }
@@ -71,12 +89,12 @@ public class DrawService : IDrawService
                 }
 
                 // Eğer grup 4 gruptan oluşuyorsa, her grup 8 takım almalı
-                if (groupCount == 4 && teamsForGroup.Count >= 8)
+                if (request.GroupCount == 4 && teamsForGroup.Count >= 8)
                 {
                     break;
                 }
                 // Eğer grup 8 gruptan oluşuyorsa, her grup 4 takım almalı
-                else if (groupCount == 8 && teamsForGroup.Count >= 4)
+                else if (request.GroupCount == 8 && teamsForGroup.Count >= 4)
                 {
                     break;
                 }
@@ -89,8 +107,11 @@ public class DrawService : IDrawService
             }
 
             groups.Add(group);
+            drawResult.Groups.Add(groupEnt);
         }
 
+        _unitOfWork.Draws.AddAsync(drawResult);
+        _unitOfWork.SaveAsync();
         return groups;
     }
 

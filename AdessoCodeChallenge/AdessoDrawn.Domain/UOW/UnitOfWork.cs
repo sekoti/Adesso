@@ -10,11 +10,14 @@ public class UnitOfWork : IUnitOfWork
     public ICountryRepository Countries { get; }
     public ITeamRepository Teams { get; }
 
+    public IDrawRepository Draws { get; }
+
     public UnitOfWork(DrawContext context)
     {
         _context = context;
         Countries = new CountryRepository(context);
         Teams = new TeamRepository(context);
+        Draws = new DrawRepository(context);
     }
 
     public async Task<int> SaveAsync()
