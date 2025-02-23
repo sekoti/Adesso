@@ -1,7 +1,22 @@
+using AdessoDraw.Application.Models.RequestModels;
+using AdessoDraw.Domain.Context;
+using Microsoft.EntityFrameworkCore;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+#region Controller Registration & Fluent Validation
+builder.Services.AddDbContext<DrawContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<DrawRequestModelValidator>(
+    ServiceLifetime.Transient
+);
 
+#endregion Controller Registration & Fluent Validation
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

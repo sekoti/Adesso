@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35818.85 d17.13
+VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdessoDrawn.Api", "AdessoDrawn.Api\AdessoDrawn.Api.csproj", "{0DCF3DD8-8AD7-4DAA-AA07-F405D69AAB4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdessoDraw.Api", "AdessoDrawn.Api\AdessoDraw.Api.csproj", "{0DCF3DD8-8AD7-4DAA-AA07-F405D69AAB4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdessoDraw.Application", "AdessoDrawn.Application\AdessoDraw.Application.csproj", "{31F7EE27-334B-4DB3-AB1D-498023EA953E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdessoDraw.Domain", "AdessoDrawn.Domain\AdessoDraw.Domain.csproj", "{876A1A96-75CD-4444-B453-A196302D03EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{0DCF3DD8-8AD7-4DAA-AA07-F405D69AAB4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DCF3DD8-8AD7-4DAA-AA07-F405D69AAB4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DCF3DD8-8AD7-4DAA-AA07-F405D69AAB4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31F7EE27-334B-4DB3-AB1D-498023EA953E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31F7EE27-334B-4DB3-AB1D-498023EA953E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31F7EE27-334B-4DB3-AB1D-498023EA953E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31F7EE27-334B-4DB3-AB1D-498023EA953E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{876A1A96-75CD-4444-B453-A196302D03EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{876A1A96-75CD-4444-B453-A196302D03EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{876A1A96-75CD-4444-B453-A196302D03EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{876A1A96-75CD-4444-B453-A196302D03EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

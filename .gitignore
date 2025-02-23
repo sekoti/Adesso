@@ -4,3 +4,10 @@
 
 /.vs
 /AdessoCodeChallenge/AdessoDrawn.Api/obj
+/AdessoCodeChallenge/AdessoDrawn.Application/bin/Debug/net8.0
+/AdessoCodeChallenge/AdessoDrawn.Domain/bin/Debug/net8.0
+/AdessoCodeChallenge/AdessoDrawn.Domain/obj
+/AdessoCodeChallenge/AdessoDrawn.Application/obj
+/AdessoCodeChallenge/AdessoDrawn.Api/bin/Debug/net8.0
+/AdessoCodeChallenge/.vs
+/AdessoCodeChallenge/.cr/personal/FavoritesList
