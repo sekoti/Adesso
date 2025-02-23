@@ -9,8 +9,6 @@ public class DrawService : IDrawService
 {
     private readonly IUnitOfWork _unitOfWork;
 
-    private static List<string> GroupNames = new List<string> { "A", "B", "C", "D", "E", "F", "G", "H" };
-
     // Constructor injection ile IUnitOfWork'i alıyoruz.
     public DrawService(IUnitOfWork unitOfWork)
     {
