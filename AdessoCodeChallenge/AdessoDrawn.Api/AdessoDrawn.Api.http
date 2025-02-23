@@ -1,0 +1,6 @@
+@AdessoDrawn.Api_HostAddress = http://localhost:5280
+
+GET {{AdessoDrawn.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
