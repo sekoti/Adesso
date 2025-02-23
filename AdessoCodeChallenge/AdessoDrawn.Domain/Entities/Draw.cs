@@ -1,6 +1,8 @@
-﻿namespace AdessoDraw.Domain.Entities;
+﻿using AdessoDraw.Domain.Models;
 
-public class Draw
+namespace AdessoDraw.Domain.Entities;
+
+public class Draw :BaseEntity<Guid>
 {
     public string DrawnBy { get; set; }
     public DateTime DrawDate { get; set; }

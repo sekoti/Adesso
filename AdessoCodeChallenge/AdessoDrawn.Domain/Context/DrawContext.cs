@@ -8,10 +8,28 @@ public class DrawContext : DbContext
 
     public DbSet<Country> Countries { get; set; }
     public DbSet<Team> Teams { get; set; }
-
+    public DbSet<Draw> Draws { get; set; }
+    public DbSet<Group> Groups { get; set; }
+    public DbSet<GroupTeam> GroupTeams { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Country>()
+            .Property(t => t.Id)
+            .ValueGeneratedOnAdd();
+
+        modelBuilder.Entity<Team>()
+            .Property(t => t.Id)
+            .ValueGeneratedOnAdd();
+
+        modelBuilder.Entity<Draw>()
+            .Property(t => t.Id)
+            .ValueGeneratedOnAdd();
+
+        modelBuilder.Entity<Group>()
+            .Property(t => t.Id)
+            .ValueGeneratedOnAdd();
+
+        modelBuilder.Entity<GroupTeam>()
             .Property(t => t.Id)
             .ValueGeneratedOnAdd();
 
@@ -25,9 +43,7 @@ public class DrawContext : DbContext
             new Country { Name = "İspanya", Id = 7 },
             new Country { Name = "Belçika", Id = 8 }
         );
-        modelBuilder.Entity<Team>()
-            .Property(t => t.Id)
-            .ValueGeneratedOnAdd();
+
 
         modelBuilder.Entity<Team>().HasData(
     // Türkiye
@@ -80,4 +96,7 @@ public class DrawContext : DbContext
         );
 
     }
+
+
+
 }
