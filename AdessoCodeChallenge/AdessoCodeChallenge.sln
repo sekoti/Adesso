@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdessoDraw.Application", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdessoDraw.Domain", "AdessoDrawn.Domain\AdessoDraw.Domain.csproj", "{876A1A96-75CD-4444-B453-A196302D03EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdessoDraw.Infrastructure", "AdessoDraw.Infrastructure\AdessoDraw.Infrastructure.csproj", "{2640AD04-C38D-4677-9B2C-3D5D72DDFE4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{876A1A96-75CD-4444-B453-A196302D03EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{876A1A96-75CD-4444-B453-A196302D03EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{876A1A96-75CD-4444-B453-A196302D03EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2640AD04-C38D-4677-9B2C-3D5D72DDFE4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2640AD04-C38D-4677-9B2C-3D5D72DDFE4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2640AD04-C38D-4677-9B2C-3D5D72DDFE4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2640AD04-C38D-4677-9B2C-3D5D72DDFE4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

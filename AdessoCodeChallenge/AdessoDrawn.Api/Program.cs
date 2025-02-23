@@ -3,6 +3,10 @@ using AdessoDraw.Domain.Context;
 using Microsoft.EntityFrameworkCore;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using AdessoDraw.Domain.UOW;
+using AdessoDraw.Application.Interfaces;
+using AdessoDraw.Application.Services;
+using AdessoDraw.Infrastructure.DI;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<DrawContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+builder.Services.AddServices();
 builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<DrawRequestModelValidator>(
     ServiceLifetime.Transient
@@ -38,3 +43,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+

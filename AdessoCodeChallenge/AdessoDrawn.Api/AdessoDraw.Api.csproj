@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AdessoDraw.Infrastructure\AdessoDraw.Infrastructure.csproj" />
     <ProjectReference Include="..\AdessoDrawn.Application\AdessoDraw.Application.csproj" />
   </ItemGroup>
 
